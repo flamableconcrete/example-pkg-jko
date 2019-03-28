@@ -1,0 +1,22 @@
+dist: xenial
+language: python
+python: 3.7
+env:
+  global:
+  - VERSION=$TRAVIS_TAG
+install:
+- pip install -r requirements.txt
+script:
+- python setup.py sdist bdist_wheel
+deploy:
+  matrix:
+  - provider: pypi
+    user: jondricek
+    password:
+      secure: Bdf/2fRRBKVXtPOFQlNRNf4+tLG3mLHkC603Vv+XQc+oc8r0XWaDMS2wUKDFIKjcZSRPot9nMDGO9gGiuhhQv31RE7o2EvS0vdIpuL7jJsge4f6nQPpfCYLB6zQX8A+BtEFNrmbsn8tqv9LEdpeBWI42CQf1Hufv36gy8uh9l+D5G0R5nHbnMMW5uKETTPQXoSaUMSbyDBdrRxfJ7HzysqYQ2AP1FXU018qCK9cT3oGEpwCJdkEb/kTv/tzDXj+TS+aCPqoLe3Gn3w6di0cl2BdGjnUSX8ntbJXZ6PfwK3tafwfikflbSy4Y8qKrj8WwGfMlWB6swqJQUpmvcfBx+FMlnZMp1iVHV0oT3b44nWZJGwZy2qOkutH73oZHcsHyedFFwd83E7niaSAovm17clW9d0RZ2yxzyyRQgqzOOQXe/Do/VJ9fSEhDPWrq1X+je1GU3e3Y63Yxr3RA+VyQMHKVPZA53bZKf3vS35TkDZT3bcwYIlO4dRTTxDx1UYIENUS5Jkk1havN5S42dbZ5L+SJU1Z+/1BJ5VM6FQY+cwNlgNRbLOwahmP9Zp+B83fZ0RRv4TTpT/00YJhtssNWV26Mc5x1gS7CC/5X/aP1PLbXZYaicUddbN9ih2P0mDK6AzZ6Bw48A6Fg30nX5M4t2T2MN0lavx4t6EyEmgaql7g=
+    distributions: sdist bdist_wheel
+    server: https://test.pypi.org/legacy/
+    skip_cleanup: true
+    on:
+      tags: true
+
