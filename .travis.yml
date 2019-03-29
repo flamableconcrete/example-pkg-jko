@@ -6,16 +6,18 @@ env:
   - VERSION=$TRAVIS_TAG
 install:
 - pip install -r requirements.txt
+
 script:
 - python setup.py sdist bdist_wheel
+
 deploy:
   provider: pypi
   user: jondricek
-  password:
-    secure: Bdf/2fRRBKVXtPOFQlNRNf4+tLG3mLHkC603Vv+XQc+oc8r0XWaDMS2wUKDFIKjcZSRPot9nMDGO9gGiuhhQv31RE7o2EvS0vdIpuL7jJsge4f6nQPpfCYLB6zQX8A+BtEFNrmbsn8tqv9LEdpeBWI42CQf1Hufv36gy8uh9l+D5G0R5nHbnMMW5uKETTPQXoSaUMSbyDBdrRxfJ7HzysqYQ2AP1FXU018qCK9cT3oGEpwCJdkEb/kTv/tzDXj+TS+aCPqoLe3Gn3w6di0cl2BdGjnUSX8ntbJXZ6PfwK3tafwfikflbSy4Y8qKrj8WwGfMlWB6swqJQUpmvcfBx+FMlnZMp1iVHV0oT3b44nWZJGwZy2qOkutH73oZHcsHyedFFwd83E7niaSAovm17clW9d0RZ2yxzyyRQgqzOOQXe/Do/VJ9fSEhDPWrq1X+je1GU3e3Y63Yxr3RA+VyQMHKVPZA53bZKf3vS35TkDZT3bcwYIlO4dRTTxDx1UYIENUS5Jkk1havN5S42dbZ5L+SJU1Z+/1BJ5VM6FQY+cwNlgNRbLOwahmP9Zp+B83fZ0RRv4TTpT/00YJhtssNWV26Mc5x1gS7CC/5X/aP1PLbXZYaicUddbN9ih2P0mDK6AzZ6Bw48A6Fg30nX5M4t2T2MN0lavx4t6EyEmgaql7g=
   distributions: sdist bdist_wheel
   server: https://test.pypi.org/legacy/
   skip_cleanup: true
-  #on:
-  #  tags: true
+  password:
+    secure: NxBMzuyzWKmh5pS9aGBlv99+s3/HyG4bp7oomlidvSgIeUpsgxpwbr6JPRJ2+8M4CQqeV3/MDAXEwG588UruLpeFqX90MMyNFcUhhkyoq+Jv0ets97/5+v+AFvsxUu9FjZK36DFvRNAngmGnHqCfV8Q/gJD6znNA4VFmoFJ6ZMuneG0EJjnC5/hxWdIVZNTS1urdxuKHBIlxXDV9wD7tNn45nQdT30gWrleEuLcw78p+R3EvhQO3EkYNqC3oDdre6NJ8PEwqIsY5KqZ58/CxD6588a1EbZhDhBR+D8nKjqYQWBAf+szszn8nuCcDeWz1e6DlKnZPj0eYpbImA4AmWJ5ghqh90MKFYNRiQuNXVr+D5EeR4bxYS9b/fDIlg6AollSAm97TdGse13B82LSDeUy63+WEGd5RraxYDMxtahEFP//TFU7cAIrejhChHeiX0EbVA2dIw4EzxsrCL2uUFVm1Lydzby/hTl+SHxHOjQ8BzRKbYCZ6NKmOgo2uIwJazGxmswqriazLybzogAJ/NcNNN/rPi4UIoBTAOCmQCdaq47YIi8u/ypAgn0hao8FixcGZ7gV7gXtR1iapocerVwIIt1N9PBuCxesvud6HFjIYUwztF4A3kUnBGwk+bKiYzSpNNj1Td2jW8keHodW5rGpumbb+vsBDO6lwPsU4H5w=
+  on:
+    tags: true
 
